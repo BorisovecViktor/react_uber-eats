@@ -28,9 +28,15 @@ const LazyImage: React.FC<Props> = ({ src, alt }) => {
   }, [])
 
   if (showImage) {
-    return <img className={cn('card__img', {
-      'card__img--loading': showImage
-    })} src={src} alt={alt} />
+    return (
+      <img
+        className={cn('card__img', {
+          'card__img--loading': showImage
+        })}
+        src={src}
+        alt={alt}
+      />
+    )
   }
 
   return <div ref={imageRef} className="card__img"></div>
