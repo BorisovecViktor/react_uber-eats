@@ -7,6 +7,12 @@
     width: 100%;
     height: $card-height * 0.7;
     object-fit: cover;
+
+    &--loading {
+      background-image: url(../styles/img/img-spinner.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   }
 
   &__title {

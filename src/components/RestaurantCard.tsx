@@ -1,7 +1,7 @@
 import React from 'react';
+import LazyImage from './LazyImage';
 
 type Props = {
-  uuid: string,
   title: string,
   imageUrl: string,
   categories: string[],
@@ -9,14 +9,13 @@ type Props = {
 }
 
 const RestaurantCard: React.FC<Props> = ({
-  // uuid,
   title,
   imageUrl,
   categories,
   etaRange }) => {
   return (
     <>
-      <img src={imageUrl} alt={title} className="card__img" />
+      <LazyImage src={imageUrl} alt={title} />
       <h2 className="card__title">{title}</h2>
       <div className="card__categories">
         {categories.join(' • ')}

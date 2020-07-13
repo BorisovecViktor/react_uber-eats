@@ -31,7 +31,6 @@ const RestaurantsPage: React.FC<Props> = ({ products }) => {
             etaRange }) => (
               <li key={uuid} className="restaurant__card card">
                 <RestaurantCard
-                  uuid={uuid}
                   title={title}
                   imageUrl={heroImageUrl}
                   categories={categories}
