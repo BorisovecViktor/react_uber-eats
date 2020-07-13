@@ -6,7 +6,8 @@ import * as store from './store';
 
 import Header from './components/Header';
 import RestaurantsPage from './pages/RestourantsPage';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
+import LazyFooter from './components/LazyFooter';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,8 @@ const App = () => {
           <RestaurantsPage products={products} />
         </main>
       </div>
-      <Footer />
+      {/* <Footer /> */}
+      <LazyFooter />
     </div>
   );
 }
