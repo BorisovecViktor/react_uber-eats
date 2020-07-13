@@ -1,0 +1,58 @@
+.control {
+  @include flex-row-center;
+  padding: 10px;
+  border-bottom: 1px solid transparent;
+  transition: $transition-duration;
+
+  &--focused {
+    border-color: $input-border-color;
+  }
+
+  &__icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+  }
+
+  &__input {
+    line-height: 22px;
+    font-size: 1rem;
+  }
+
+  &--address {
+    margin-right: 20px;
+  }
+
+  &--time input {
+    width: 125px;
+    cursor: pointer;
+  }
+
+  &--time input::-webkit-datetime-edit-hour-field,
+  &--time input::-webkit-datetime-edit-minute-field {
+    background-color: $green-color;
+    opacity: 0.5;
+    padding: 19px 13px;
+
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  &--time input::-webkit-datetime-edit-hour-field {
+    margin-right: 5px;
+  }
+
+  &--time input::-webkit-datetime-edit-minute-field {
+    margin-left: 5px;
+  }
+
+  &--time input::-webkit-clear-button,
+  &--time input::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  &--search {
+    margin-left: auto;
+  }
+}

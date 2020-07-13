@@ -1,0 +1,44 @@
+// @mixin hover($_property, $_toValue, $_time) {
+//   transition: #{$_property} #{$_time}s;
+
+//   &:hover {
+//     #{$_property}: $_toValue;
+//   }
+// }
+
+@mixin h2 {
+  margin: 12px 0 4px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+@mixin flex-row-center {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin scrollbar-style {
+  body::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: white;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: $primary-color;
+  }
+}
