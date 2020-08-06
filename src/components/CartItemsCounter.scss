@@ -1,0 +1,39 @@
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100px;
+
+  &__button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid $input-border-color;
+    cursor: pointer;
+    outline: none;
+  
+    &:hover {
+      background-color: #ecebeb;
+    }
+  
+    &:disabled {
+      opacity: 0.4;
+      background-color: #fff;
+      cursor: default;
+    }
+
+    &--plus {
+      background: url("../styles/img/plus.svg") no-repeat;
+      background-position: 7px center;
+    }
+
+    &--minus {
+      background: url("../styles/img/minus.svg") no-repeat;
+      background-position: 7px center;
+    }
+  }
+
+  &__amount {
+    width: 30px;
+    text-align: center;
+  }
+}

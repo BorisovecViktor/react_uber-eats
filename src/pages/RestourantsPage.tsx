@@ -1,10 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import RestaurantCard from '../components/RestaurantCard';
 import Spinner from '../components/Spinner';
-import Error from '../components/Error';
 
-import { useSelector } from 'react-redux';
 import * as store from '../store';
 
 type Props = {
@@ -13,32 +12,41 @@ type Props = {
 
 const RestaurantsPage: React.FC<Props> = ({ products }) => {
   const loading = useSelector(store.getIsLoading);
-  const error = useSelector(store.getErrorMessage);
 
   return (
     <>
-      {error && <Error error={error} />}
       {loading
         ?
         <Spinner />
         :
-        <ul className="restaurant__list">
-          {products.map(({
-            uuid,
-            title,
-            heroImageUrl,
-            categories,
-            etaRange }) => (
-              <li key={uuid} className="restaurant__card card">
-                <RestaurantCard
-                  title={title}
-                  imageUrl={heroImageUrl}
-                  categories={categories}
-                  etaRange={etaRange.text}
-                />
-              </li>
-            ))}
-        </ul>
+        (
+          products.length
+            ?
+            <ul className="restaurant__list">
+              {products.map(({
+                slug,
+                uuid,
+                title,
+                heroImageUrl,
+                categories,
+                etaRange }) => (
+                  <RestaurantCard
+                    key={uuid}
+                    slug={slug}
+                    title={title}
+                    imageUrl={heroImageUrl}
+                    categories={categories}
+                    etaRange={etaRange.text}
+                  />
+                ))}
+            </ul>
+            :
+            <img
+              className="restaurant__not-found"
+              src={require('../styles/img/restaurant-not-found.jpg')}
+              alt="restaurant not found"
+            />
+        )
       }
     </>
   );

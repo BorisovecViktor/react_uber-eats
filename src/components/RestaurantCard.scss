@@ -1,18 +1,16 @@
 .card {
   width: 100%;
-  height: $card-height;
   cursor: pointer;
+  
+  &__image-container {
+    position: relative;
+  }
 
-  &__img {
+  &__image {
+    display: block;
     width: 100%;
     height: $card-height * 0.7;
     object-fit: cover;
-
-    &--loading {
-      background-image: url(../styles/img/img-spinner.svg);
-      background-position: center;
-      background-repeat: no-repeat;
-    }
   }
 
   &__title {
@@ -21,8 +19,14 @@
 
   &__categories {
     margin-bottom: 4px;
+    line-height: 20px;
+    text-align: justify;
     font-size: 0.87rem;
     color: #757575;
+
+    @media (max-width: 1279px) {
+      font-size: 0.8rem;
+    }
   }
 
   &__eta {
@@ -30,5 +34,9 @@
     padding: 2px 8px;
     font-size: 0.87rem;
     background: #F5F5F5;
+
+    @media (max-width: 1279px) {
+      font-size: 0.8rem;
+    }
   }
 }

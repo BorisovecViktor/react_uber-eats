@@ -1,7 +1,10 @@
 import React, { useState, useRef } from 'react';
 import cn from 'classnames';
 
-const Input: React.FC<HeaderInput> = ({
+import { useLocation, useHistory } from 'react-router-dom';
+
+const HeaderInput: React.FC<HeaderInput> = ({
+  query,
   iconUrl,
   value,
   onChange,
@@ -12,12 +15,15 @@ const Input: React.FC<HeaderInput> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const history = useHistory();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
 
-  const handkeInputFocus = () => {
+  const handleInputFocus = () => {
     setIsFocused(true);
   }
 
-  const handkeInputBlur = () => {
+  const handleInputBlur = () => {
     setIsFocused(false);
   }
 
@@ -46,14 +52,28 @@ const Input: React.FC<HeaderInput> = ({
         type={type}
         value={value}
         onChange={e => onChange(e)}
-        onFocus={handkeInputFocus}
-        onBlur={handkeInputBlur}
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
         name={name}
         placeholder={placeholder}
         className="control__input"
       />
+      {query && query.length > 0 &&
+        <button
+          className="control__clear"
+          type="button"
+          onClick={() => {
+            searchParams.delete('query');
+            history.push({
+              search: searchParams.toString(),
+            });
+          }}
+        >
+          {' '}
+        </button>
+      }
     </div>
   );
 }
 
-export default Input;
+export default HeaderInput;

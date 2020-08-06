@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import cn from 'classnames';
+
+import ImagePreloader from './ImagePreloader';
 
 type Props = {
   src: string;
@@ -19,8 +20,9 @@ const registerObserver = (ref: any, setShowImage: any) => {
   observer.observe(ref)
 }
 
-const LazyImage: React.FC<Props> = ({ src, alt }) => {
+const LazyImageDish: React.FC<Props> = ({ src, alt }) => {
   const [showImage, setShowImage] = useState(false);
+  const [imgVisible, setImgVisible] = useState(false);
   const imageRef = useRef(null);
 
   useEffect(() => {
@@ -29,17 +31,19 @@ const LazyImage: React.FC<Props> = ({ src, alt }) => {
 
   if (showImage) {
     return (
-      <img
-        className={cn('card__img', {
-          'card__img--loading': showImage
-        })}
-        src={src}
-        alt={alt}
-      />
+      <>
+        {!imgVisible && <ImagePreloader />}
+        <img
+          src={src}
+          alt={alt}
+          className='dish__image'
+          onLoad={() => setImgVisible(true)}
+        />
+      </>
     )
   }
 
-  return <div ref={imageRef} className="card__img"></div>
+  return <div ref={imageRef} className="dish__image"></div>
 }
 
-export default LazyImage;
+export default LazyImageDish;

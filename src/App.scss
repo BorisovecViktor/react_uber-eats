@@ -1,33 +1,60 @@
 @import "./styles/fonts";
+@import "./styles/reset";
 @import "./styles/variables";
 @import "./styles/mixins";
 
 @import "./components/Header";
 @import "./components/HeaderInput";
+@import "./components/Cart";
+@import "./components/CartItem";
+@import "./components/CartItemsCounter";
+@import "./components/PopupCard";
+@import "./components/Order";
 @import "./components/RestaurantCard";
+@import "./components/RestaurantDescription";
+@import "./components/MenuSection";
+@import "./components/MenuDish";
 @import "./components/Footer";
 @import "./components/FooterSelect";
 @import "./components/Spinner";
+@import "./components/ImagePreloader";
 @import "./components/Error";
 
 @import "./pages/RestourantsPage";
+@import "./pages/RestaurantDetailsPage";
+@import "./pages/NotFoundPage";
 
 html {
   @include scrollbar-style;
-  font-family: Mont, Arial, Helvetica, sans-serif;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   color: $primary-color;
 }
 
 .page {
   min-height: 100vh;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.layout {
+  position: fixed;
+  transition: all $transition-duration;
+
+  &--active {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.5);
+  }
 }
 
 .content {
   max-width: 1450px;
   margin: 0 auto;
   padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 input {

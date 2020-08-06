@@ -1,0 +1,29 @@
+.description {
+  &__title {
+    line-height: 21px;
+    font-size: 1.5rem;
+    color: #1d1d1d;
+
+    @media (max-width: 979px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  &__categories {
+    line-height: 21px;
+    margin: 16px 0 18px;
+    font-size: 0.87rem;
+    color: #757575;
+
+    @media (max-width: 649px) {
+      margin: 10px 0 12px;
+    }
+  }
+
+  &__eta {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.87rem;
+    background: #F5F5F5;
+  }
+}

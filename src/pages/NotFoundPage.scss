@@ -1,0 +1,41 @@
+.notfound {
+  &__message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 140px;
+    height: 45vh;
+    text-align: center;
+    background: url("../styles/img/not-found.svg") no-repeat;
+    background-position: center center;
+    background-size: 50px 50px;
+  }
+
+  &__message-title {
+    margin-top: 60px;
+    font-size: 34px;
+  }
+
+  &__message-text {
+    width: 300px;
+    line-height: 25px;
+    margin-top: 10px;
+  }
+
+  &__link {
+    margin-top: 20px;
+    padding-left: 15px;
+    background: url("../styles/img/arrow-left.svg") no-repeat;
+    background-position: center left;
+    border: transparent;
+    cursor: pointer;
+    color: $secondary-color;
+    transition: color $transition-duration;
+    outline: none;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}

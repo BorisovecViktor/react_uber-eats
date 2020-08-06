@@ -1,0 +1,143 @@
+.popup {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 350px;
+  background-color: #fff;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 3;
+
+  @media (max-width: 767px) {
+    width: 450px;
+    height: 300px;
+  }
+
+  @media (max-width: 559px) {
+    width: 300px;
+    height: 250px;
+  }
+
+  &--open {
+    opacity: 1;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+
+    @media (max-width: 559px) {
+      padding: 10px 5px;
+    }
+  }
+
+  &__img {
+    display: block;
+    height: 240px;
+    object-fit: contain;
+    object-position: center;
+
+    @media (max-width: 767px) {
+      height: 160px;
+    }
+
+    @media (max-width: 559px) {
+      height: 100px;
+      margin-top: 20px;
+    }
+  }
+
+  &__title {
+    margin: 35px 0 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    @media (max-width: 767px) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 559px) {
+      margin: 25px 0 10px;
+      font-size: 0.87rem;
+    }
+  }
+
+  &__text {
+    line-height: 21px;
+    font-size: 1rem;
+
+    @media (max-width: 767px) {
+      line-height: 18px;
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 559px) {
+      line-height: 13px;
+    }
+  }  
+
+  &__add-button,
+  &__remove-button {
+    width: 60%;
+    line-height: 40px;
+    margin-bottom: 25px;
+    border: 0;
+    outline: 0;
+    background-color: #247a00;
+    color: #fff;
+    font-size: 1rem;
+    transition: all $transition-duration;
+    cursor: pointer;
+
+    @media (max-width: 559px) {
+      margin-bottom: 5px;
+    }
+
+    &:hover {
+      background-color: #1d5306;
+    }
+  }
+
+  &__remove-button {
+    background-color: #920404;
+    
+    &:hover {
+      background-color: #520505;
+    }
+  }  
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-image: url("../styles/img/close.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    transition: $transition-duration;
+    outline-color: #bbbbbb;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+}
